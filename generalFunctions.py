@@ -23,29 +23,3 @@ def dictToList(dictionary):
         dictList.append(dictionary[key])
 
     return dictList
-
-
-def ListToDictKeyKey(list, indexDType, valDType):
-    """Function takes the INDEXES from a list and outputs them to a dictionary, where the INDEX is the SAME AS the VALUE.
-    Have DType variables be true if you want the type stored to be an int, or false if you want it to be a string"""
-    # Have in mind this function does not return any of the list's values, only it's indexes.
-
-    listDict = {}
-    objectDict = listDict
-    for index in range(len(list)):
-
-        if indexDType == True and valDType == True:
-            objectDict.add(index, index)
-        elif indexDType == True and valDType == False:
-            objectDict.add(index, str(index))
-        elif indexDType == False and valDType == True:
-            objectDict.add(str(index), index)
-        else:
-            objectDict.add(str(index), str(index))
-
-    return objectDict
-
-# ListToDictKeyKey test
-testList = [5, 7, 6, 2, 3]
-testDict = ListToDictKeyKey(testList, True, False)
-print(testDict)

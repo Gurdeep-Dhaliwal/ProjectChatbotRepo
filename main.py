@@ -7,6 +7,7 @@
 from generalFunctions import *
 from greetings import *
 from userDetails import *
+import random
 
 # the following is a two-dimensional array.
 # each of the indexes in the first dimension corresponds to a list of keywords related to a certain function / feature.
@@ -32,62 +33,61 @@ def stringToKeywords(input):
     return input.split()
 
 
-def keywordsSelection(keywords):
-    """Takes the keywords from user input and decides which of the chatbot's features should be executed"""
+def keywordsListSelection(keywords):
+    """Takes the keywords from user input and outputs the lists corresponding to each function that has the most matches."""
     countList = []
-    countDict = {}
+
+    # lowercase all keywords (to do)
 
     for i in range(len(keywordsList)):
 
-        # Need to get the size of the list to be iterated over
-        # create an if to exit the 2nd loop in case it goes over the list's size.
-        # (this will involve adding a count variable to inner loop)
-        # get a randint() to get a random int between the size of the list being iterated over.
-        # get to compare the keywords to the 2nd dimension of the list corresponding to the new int's index
+        # lowercase all elements in keywordslist[i] (to do)
+
+        countList.append(0)
+        keywordsList[i].append(0)  # this adds an element which stores the number of keyword matches to the list being iterated over.
+        count = 0  # counts every iteration of the inner loop.
+        listLen = len(keywordsList[i])
 
         for keyW in keywords:
 
+            count = count + 1
+            if count > (listLen - 1):
+                break
 
-            if keywords[keyW] in keywordsList[i]:
+            if keyW in keywordsList[i]:
                 countList[i] = countList[i] + 1
+                keywordsList[i][-1] = keywordsList[i][-1] + 1  # adds 1 to the last element of the list being iterated over
+                del(keywordsList[-1])
+
+    # I want it to go through each of the inner list's last element and retrieve the largest.
+    countListMax = max(countList)
+
+    for i in range(len(keywordsList)):
+        if countListMax == keywordsList[i][-1]:
+            del keywordsList[i][-1]
+            return keywordsList[i]
+
+
+def functionSelection(KWList):
+
+    compareList1 = [greetingStartupKWList]
+    if KWList == compareList1:
+        greetingStartup()
 
 
 
 
 
+functionSelection(keywordsListSelection(stringToKeywords(getUserInput())))
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# testList = [42, 75, 83, 24, 56]
+# print(testList.index(max(testList)))
 
 
 # The code below is meant to test the listed functions.
-introduction()
-showUserDetails()
+# introduction()
+# showUserDetails()
 
 
 # TEST checkInputNumber
