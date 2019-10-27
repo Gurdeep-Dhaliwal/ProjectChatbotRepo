@@ -5,8 +5,15 @@
 # If it is only one line, just write it next to the line.
 
 from generalFunctions import *
-from introduction import *
+from greetings import *
 from userDetails import *
+
+# the following is a two-dimensional array.
+# each of the indexes in the first dimension corresponds to a list of keywords related to a certain function / feature.
+# each of the indexes in the second dimension corresponds to the values (keywords) inside the listed lists for each function / feature.
+# all keywords lists are named <functionName>KWList.
+# To find which index your function's list corresponds to, just write keywordList.index()
+keywordsList = [[greetingStartupKWList]]
 
 
 # The function body below was partially copied from a pynative.com article.
@@ -20,7 +27,65 @@ def checkInputNumber(uInput):
         return False  # The print functions were removed and the function now returns a bool.
 
 
-#The code below is meant to test the listed functions.
+def stringToKeywords(input):
+    """Gets a string as an input and outputs it in a list of keywords"""
+    return input.split()
+
+
+def keywordsSelection(keywords):
+    """Takes the keywords from user input and decides which of the chatbot's features should be executed"""
+    countList = []
+    countDict = {}
+
+    for i in range(len(keywordsList)):
+
+        # Need to get the size of the list to be iterated over
+        # create an if to exit the 2nd loop in case it goes over the list's size.
+        # (this will involve adding a count variable to inner loop)
+        # get a randint() to get a random int between the size of the list being iterated over.
+        # get to compare the keywords to the 2nd dimension of the list corresponding to the new int's index
+
+        for keyW in keywords:
+
+
+            if keywords[keyW] in keywordsList[i]:
+                countList[i] = countList[i] + 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# The code below is meant to test the listed functions.
 introduction()
 showUserDetails()
 

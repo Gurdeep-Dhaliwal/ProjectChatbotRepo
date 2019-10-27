@@ -14,6 +14,8 @@ userDetailsDict = {
 }
 
 
+
+
 def getUserDetails():
     """Gets the user's personal data"""
     userDetailsDict["name"] = getUserName()
