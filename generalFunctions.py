@@ -23,3 +23,15 @@ def dictToList(dictionary):
         dictList.append(dictionary[key])
 
     return dictList
+
+
+# The function body below was partially copied from a pynative.com article.
+# link: https://pynative.com/python-check-user-input-is-number-or-string/
+def checkInputNumber(uInput):
+    """Returns True if the input is a number"""
+    try:
+        val = float(uInput)
+        return True  # The print functions were removed and the function now returns a bool.
+    except ValueError:
+        return False  # The print functions were removed and the function now returns a bool.
+    

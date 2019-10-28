@@ -14,18 +14,7 @@ import random
 # each of the indexes in the second dimension corresponds to the values (keywords) inside the listed lists for each function / feature.
 # all keywords lists are named <functionName>KWList.
 # To find which index your function's list corresponds to, just write keywordList.index()
-keywordsList = [greetingKWList]
-
-
-# The function body below was partially copied from a pynative.com article.
-# link: https://pynative.com/python-check-user-input-is-number-or-string/
-def checkInputNumber(uInput):
-    """Returns True if the input is a number"""
-    try:
-        val = float(uInput)
-        return True  # The print functions were removed and the function now returns a bool.
-    except ValueError:
-        return False  # The print functions were removed and the function now returns a bool.
+keywordsList = [greetingsGeneralKWList]
 
 
 def stringToKeywords(input):
@@ -68,16 +57,20 @@ def keywordsListSelection(keywords):
     for i in range(len(keywordsList)):
         if countListMax == keywordsList[i][-1]:
             del keywordsList[i][-1]
-            return keywordsList[i]
+            return keywordsList[i]  # List of keywords equivalent to the most matched list of keywords (with the latter relating to a certain function)
 
 
-def functionSelection(KWList):
-    # Function is meant to take the selected list (on keywordsListSelection's output)
+def functionCheck(KWList):
+    # Function is meant to take in the selected list (on keywordsListSelection's output)
     # Function then runs the function corresponding to the keywords list.
 
-    if KWList == greetingKWList:
-        greeting()
+    if KWList == greetingsGeneralKWList:
+        greetingsGeneral()
 
+
+def functionRun():
+    """Function gets input from user and runs the most adequate function"""
+    functionCheck(keywordsListSelection(stringToKeywords(getUserInput())))
 
 # for j in range(len(keywordsList[0])):
 #     keywordsList[0][j] = keywordsList[0][j].lower()
@@ -85,7 +78,7 @@ def functionSelection(KWList):
 # print(keywordsList[0])
 
 # testing thee whole thing
-functionSelection(keywordsListSelection(stringToKeywords(getUserInput())))
+# functionCheck(keywordsListSelection(stringToKeywords(getUserInput())))
 
 # print(keywordsList[0][1])
 

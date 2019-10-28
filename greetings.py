@@ -7,12 +7,17 @@
 import userDetails
 import random
 
-greetingKWList = ["Hello", "Hey", "Hi", "Hi-ya", "Hola", "Heya"]
-
-greetingsList = ["Hello", "Hey", "Hi", "Hi-ya", "Hola", "BANANA!!!", "Heya"]
-
+greetingsGeneralKWList = ["Hello", "Hey", "Hi", "Hi-ya", "Hola", "Heya"]
 
 # Write general introduction which decides which of the below to run depending on if name has been provided or not.
+
+
+def greetingsGeneral():
+    if userDetails.userDetailsDict["name"] == "":
+        introduction()
+    else:
+        greeting()
+
 
 def introduction():
     """Function presents the robot to the user, and might also collect their username."""
@@ -26,8 +31,9 @@ def introduction():
 def greeting():
     """Greets the user upon startup"""
     # NOTE: ONLY run this if the user has already provided his name.
+    greetingsList = ["Hello ", "Hey ", "Hi ", "Hi-ya ", "Hola ", "Heya "]
     choiceListA = [", how may I help?", ", I'm here for you, what do you need?", ", go straight to the point, I'm hungry",
-                   ", I'm listening.", ", what do you want now? I demand sleep!"]
+                   ", I'm listening.", ", what do you want now? I demand sleep!", ", be concise on what you want, or I'll go BANANA!!!"]
 
     greetingChoice = greetingsList[random.randint(0, len(greetingsList) - 1)]
     choiceA = choiceListA[random.randint(0, len(choiceListA) - 1)]
