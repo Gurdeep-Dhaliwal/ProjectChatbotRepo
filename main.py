@@ -8,6 +8,7 @@ from generalFunctions import *
 from greetings import *
 from userDetails import *
 import random
+from PickleFileHandling import *
 
 # the following is a two-dimensional array.
 # each of the indexes in the first dimension corresponds to a list of keywords related to a certain function / feature.
@@ -24,31 +25,26 @@ def stringToKeywords(input):
 
 def keywordsListSelection(keywords):
     """Takes the keywords from user input and outputs the lists corresponding to each function that has the most matches."""
-    keywordsList = FileRead("KeyWords")
+    # keywordsList = FileRead("KeyWordsFile")
 
+    kwl = keywordsList
     countList = []
 
     # lowercase all keywords
     for i in range(len(keywords)):
         keywords[i] = keywords[i].lower()
 
-    for i in range(len(keywordsList)):
+    for i in range(len(kwl)):
 
         # lowercase all elements in keywordsList
-        for m in range(len(keywordsList[i])):
-            keywordsList[i][m] = keywordsList[i][m].lower()
+        for m in range(len(kwl[i])):
+            kwl[i][m] = kwl[i][m].lower()
 
 
         countList.append(0)
-
-
-
-        keywordsList[i].append(0)  # this adds an element which stores the number of keyword matches to the list being iterated over.
-
-
-
+        kwl[i].append(0)  # this adds an element which stores the number of keyword matches to the list being iterated over.
         count = 0  # counts every iteration of the inner loop.
-        listLen = len(keywordsList[i])
+        listLen = len(kwl[i])
 
         for keyW in keywords:
 
@@ -56,19 +52,20 @@ def keywordsListSelection(keywords):
             if count > (listLen - 1):
                 break
 
-            if keyW in keywordsList[i]:
+            if keyW in kwl[i]:
                 countList[i] = countList[i] + 1
-                keywordsList[i][-1] = keywordsList[i][-1] + 1  # adds 1 to the last element of the list being iterated over
+                kwl[i][-1] = kwl[i][-1] + 1  # adds 1 to the last element of the list being iterated over
 
     # I want it to go through each of the inner list's last element and retrieve the largest.
     countListMax = max(countList)
 
-    for i in range(len(keywordsList)):
+    for i in range(len(kwl)):
         if countListMax == keywordsList[i][-1]:
-            del keywordsList[i][-1]
-            return keywordsList[i]  # List of keywords equivalent to the most matched list of keywords (with the latter relating to a certain function)
+            del kwl[i][-1]
+            return kwl[i]  # List of keywords equivalent to the most matched list of keywords (with the latter relating to a certain function)
 
-    FileWrite("KeyWords", keywordsList)
+    FileWrite("KeyWordsFile", kwl)
+
 
 def functionCheck(KWList):
     # Function is meant to take in the selected list (on keywordsListSelection's output)

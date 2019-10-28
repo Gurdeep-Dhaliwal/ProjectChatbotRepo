@@ -7,11 +7,11 @@
 import userDetails
 import random
 
-greetingsGeneralKWList = ["Hello", "Hey", "Hi", "Hi-ya", "Hola", "Heya"]
+
 
 # Write general introduction which decides which of the below to run depending on if name has been provided or not.
 
-
+greetingsGeneralKWList = ["Hello", "Hey", "Hi", "Hi-ya", "Hola", "Heya"]
 def greetingsGeneral():
     if userDetails.userDetailsDict["name"] == "":
         introduction()
