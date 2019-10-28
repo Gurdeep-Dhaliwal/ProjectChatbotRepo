@@ -14,7 +14,7 @@ import random
 # each of the indexes in the second dimension corresponds to the values (keywords) inside the listed lists for each function / feature.
 # all keywords lists are named <functionName>KWList.
 # To find which index your function's list corresponds to, just write keywordList.index()
-keywordsList = [[greetingStartupKWList]]
+keywordsList = [greetingKWList]
 
 
 # The function body below was partially copied from a pynative.com article.
@@ -37,11 +37,15 @@ def keywordsListSelection(keywords):
     """Takes the keywords from user input and outputs the lists corresponding to each function that has the most matches."""
     countList = []
 
-    # lowercase all keywords (to do)
+    # lowercase all keywords
+    for i in range(len(keywords)):
+        keywords[i] = keywords[i].lower()
 
     for i in range(len(keywordsList)):
 
-        # lowercase all elements in keywordslist[i] (to do)
+        # lowercase all elements in keywordsList
+        for m in range(len(keywordsList[i])):
+            keywordsList[i][m] = keywordsList[i][m].lower()
 
         countList.append(0)
         keywordsList[i].append(0)  # this adds an element which stores the number of keyword matches to the list being iterated over.
@@ -57,7 +61,6 @@ def keywordsListSelection(keywords):
             if keyW in keywordsList[i]:
                 countList[i] = countList[i] + 1
                 keywordsList[i][-1] = keywordsList[i][-1] + 1  # adds 1 to the last element of the list being iterated over
-                del(keywordsList[-1])
 
     # I want it to go through each of the inner list's last element and retrieve the largest.
     countListMax = max(countList)
@@ -69,17 +72,22 @@ def keywordsListSelection(keywords):
 
 
 def functionSelection(KWList):
+    # Function is meant to take the selected list (on keywordsListSelection's output)
+    # Function then runs the function corresponding to the keywords list.
 
-    compareList1 = [greetingStartupKWList]
-    if KWList == compareList1:
-        greetingStartup()
-
-
-
+    if KWList == greetingKWList:
+        greeting()
 
 
+# for j in range(len(keywordsList[0])):
+#     keywordsList[0][j] = keywordsList[0][j].lower()
+
+# print(keywordsList[0])
+
+# testing thee whole thing
 functionSelection(keywordsListSelection(stringToKeywords(getUserInput())))
 
+# print(keywordsList[0][1])
 
 # testList = [42, 75, 83, 24, 56]
 # print(testList.index(max(testList)))

@@ -7,7 +7,7 @@
 import userDetails
 import random
 
-greetingStartupKWList = ["Hello", "Hey", "Hi", "Hi-ya", "Hola", "Heya"]
+greetingKWList = ["Hello", "Hey", "Hi", "Hi-ya", "Hola", "Heya"]
 
 greetingsList = ["Hello", "Hey", "Hi", "Hi-ya", "Hola", "BANANA!!!", "Heya"]
 
@@ -23,7 +23,7 @@ def introduction():
           ". \nIf you ever wish to change the way I call you, just ask me to change your name.")
 
 
-def greetingStartup():
+def greeting():
     """Greets the user upon startup"""
     # NOTE: ONLY run this if the user has already provided his name.
     choiceListA = [", how may I help?", ", I'm here for you, what do you need?", ", go straight to the point, I'm hungry",
