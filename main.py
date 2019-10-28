@@ -24,6 +24,8 @@ def stringToKeywords(input):
 
 def keywordsListSelection(keywords):
     """Takes the keywords from user input and outputs the lists corresponding to each function that has the most matches."""
+    keywordsList = FileRead("KeyWords")
+
     countList = []
 
     # lowercase all keywords
@@ -36,8 +38,15 @@ def keywordsListSelection(keywords):
         for m in range(len(keywordsList[i])):
             keywordsList[i][m] = keywordsList[i][m].lower()
 
+
         countList.append(0)
+
+
+
         keywordsList[i].append(0)  # this adds an element which stores the number of keyword matches to the list being iterated over.
+
+
+
         count = 0  # counts every iteration of the inner loop.
         listLen = len(keywordsList[i])
 
@@ -59,6 +68,7 @@ def keywordsListSelection(keywords):
             del keywordsList[i][-1]
             return keywordsList[i]  # List of keywords equivalent to the most matched list of keywords (with the latter relating to a certain function)
 
+    FileWrite("KeyWords", keywordsList)
 
 def functionCheck(KWList):
     # Function is meant to take in the selected list (on keywordsListSelection's output)
