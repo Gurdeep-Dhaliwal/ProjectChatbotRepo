@@ -7,25 +7,28 @@
 import generalFunctions
 
 
-userDetailsDict = {
+userDetailsDict = {  # CHANGE
     "name": "",
     "age": "",
     "gender": ""
 }
 
-
+userDetailsList = []
+# 0 = name
+# 1 = age
+# 2 = gender
 
 
 def getUserDetails():
     """Gets the user's personal data"""
-    userDetailsDict["name"] = getUserName()
-    userDetailsDict["age"] = getUserAge()
-    userDetailsDict["gender"] = getUserGender()
+    userDetailsList[0] = getUserName()  # CHANGE
+    userDetailsList[1] = getUserAge()  # CHANGE
+    userDetailsList[2] = getUserGender()  # CHANGE
 
 
 def getUserName():
     """Function asks the user to input his/her name and outputs it"""
-    print(end="" + "May you please tell me your name?")
+    print(end="" + "Please tell me your name.")
     return generalFunctions.getUserInput()
 
 
@@ -43,12 +46,11 @@ def getUserGender():
 
 def showUserDetails():
     """Function prints the details the user has already given to the chatbot"""
-    if userDetailsDict["name"] != "":
-        print(end="" + "\nHello " + userDetailsDict["name"] + ", I already know that ")
+    if userDetailsList[0] != "":
+        print(end="" + "\nHello " + userDetailsDict["name"] + ", I already know that ")  # CHANGE
     else:
         print(end="" + "\nHello, at the moment I know that ")
 
-    userDetailsList = generalFunctions.dictToList(userDetailsDict)
     for i in range(1, len(userDetailsList)):
         print(end="" + "you are " + str(userDetailsList[i]))
 

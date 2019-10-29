@@ -7,16 +7,23 @@
 import userDetails
 import random
 
+
+
+# Write general introduction which decides which of the functions below to run depending on if name has been provided or not.
 greetingsGeneralKWList = ["Hello", "Hey", "Hi", "Hi-ya", "Hola", "Heya"]
-
-# Write general introduction which decides which of the below to run depending on if name has been provided or not.
-
-
 def greetingsGeneral():
-    if userDetails.userDetailsDict["name"] == "":
+
+    if 0 == len(userDetails.userDetailsList):  # Checks if the userDetailsList isn't empty.
+        for i in range(3):
+            userDetails.userDetailsList.append("")
         introduction()
     else:
         greeting()
+
+    #if userDetails.userDetailsList[0] is None:
+    #
+    #else:
+    #    greeting()
 
 
 def introduction():
@@ -24,7 +31,7 @@ def introduction():
     # NOTE: ONLY run this is the user still hasn't provided his name.
     print("Hello, I’m your personal assistant. ")
     userDetails.getUserDetails()
-    print("Nice to meet you! From now on I’ll call you " + str(userDetails.userDetailsDict["name"]) +
+    print("Nice to meet you! From now on I’ll call you " + str(userDetails.userDetailsList[0]) +
           ". \nIf you ever wish to change the way I call you, just ask me to change your name.")
 
 
@@ -38,4 +45,4 @@ def greeting():
     greetingChoice = greetingsList[random.randint(0, len(greetingsList) - 1)]
     choiceA = choiceListA[random.randint(0, len(choiceListA) - 1)]
 
-    print(greetingChoice + userDetails.userDetailsDict["name"] + choiceA)
+    print(greetingChoice + userDetails.userDetailsList[0] + choiceA)
