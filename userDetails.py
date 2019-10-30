@@ -6,13 +6,6 @@
 
 import generalFunctions
 
-
-userDetailsDict = {  # CHANGE
-    "name": "",
-    "age": "",
-    "gender": ""
-}
-
 userDetailsList = []
 # 0 = name
 # 1 = age
@@ -43,11 +36,11 @@ def getUserGender():
     print(end="" + "What is your gender?")
     return generalFunctions.getUserInput()
 
-
+showUserDetailsKWList = ["About", "Me", "Know", "Details", "User"]
 def showUserDetails():
     """Function prints the details the user has already given to the chatbot"""
     if userDetailsList[0] != "":
-        print(end="" + "\nHello " + userDetailsDict["name"] + ", I already know that ")  # CHANGE
+        print(end="" + "\nHello " + userDetailsList[0] + ", I already know that ")
     else:
         print(end="" + "\nHello, at the moment I know that ")
 

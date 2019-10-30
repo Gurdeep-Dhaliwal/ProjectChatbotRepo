@@ -34,4 +34,3 @@ def checkInputNumber(uInput):
         return True  # The print functions were removed and the function now returns a bool.
     except ValueError:
         return False  # The print functions were removed and the function now returns a bool.
-

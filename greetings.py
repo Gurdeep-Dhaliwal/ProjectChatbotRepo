@@ -10,7 +10,7 @@ import random
 
 
 # Write general introduction which decides which of the functions below to run depending on if name has been provided or not.
-greetingsGeneralKWList = ["Hello", "Hey", "Hi", "Hi-ya", "Hola", "Heya"]
+greetingsGeneralKWList = ["Hello", "Hey", "Hi", "Hi-ya", "Hola", "Heya", "Howdy"]
 def greetingsGeneral():
 
     if 0 == len(userDetails.userDetailsList):  # Checks if the userDetailsList isn't empty.
@@ -38,7 +38,7 @@ def introduction():
 def greeting():
     """Greets the user upon startup"""
     # NOTE: ONLY run this if the user has already provided his name.
-    greetingsList = ["Hello ", "Hey ", "Hi ", "Hi-ya ", "Hola ", "Heya "]
+    greetingsList = ["Hello ", "Hey ", "Hi ", "Hi-ya ", "Hola ", "Heya ", "Howdy "]
     choiceListA = [", how may I help?", ", I'm here for you, what do you need?", ", go straight to the point, I'm hungry",
                    ", I'm listening.", ", what do you want now? I demand sleep!", ", be concise on what you want, or I'll go BANANA!!!"]
 

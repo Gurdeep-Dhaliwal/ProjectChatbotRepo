@@ -7,14 +7,13 @@
 from generalFunctions import *
 from greetings import *
 from userDetails import *
-import random
 
 # the following is a two-dimensional array.
 # each of the indexes in the first dimension corresponds to a list of keywords related to a certain function / feature.
 # each of the indexes in the second dimension corresponds to the values (keywords) inside the listed lists for each function / feature.
 # all keywords lists are named <functionName>KWList.
 # To find which index your function's list corresponds to, just write keywordList.index()
-keywordsList = [greetingsGeneralKWList]
+keywordsList = [greetingsGeneralKWList, showUserDetailsKWList]
 
 
 def stringToKeywords(inp):
@@ -35,7 +34,8 @@ def keywordsListSelection(keywords):
 
         # lowercase all elements in keywordsList
         for m in range(len(keywordsList[i])):
-            keywordsList[i][m] = keywordsList[i][m].lower()
+            if not checkInputNumber(keywordsList[i][m]):  # A value will only be lower cased if it's not a number.
+                keywordsList[i][m] = keywordsList[i][m].lower()
 
         countList.append(0)
         keywordsList[i].append(0)  # this adds an element which stores the number of keyword matches to the list being iterated over.
@@ -58,7 +58,10 @@ def keywordsListSelection(keywords):
     for i in range(len(keywordsList)):
         if countListMax == keywordsList[i][-1]:
             del keywordsList[i][-1]
-            return keywordsList[i]  # List of keywords equivalent to the most matched list of keywords (with the latter relating to a certain function)
+            if countListMax == 0:
+                return []
+            else:
+                return keywordsList[i]  # List of keywords equivalent to the most matched list of keywords (with the latter relating to a certain function)
 
 
 def functionCheck(KWList):
@@ -67,11 +70,23 @@ def functionCheck(KWList):
 
     if KWList == greetingsGeneralKWList:
         greetingsGeneral()
+    elif KWList == showUserDetailsKWList:
+        showUserDetails()
+    else:
+        noInputMatch()
 
 
 def functionRun():
     """Function gets input from user and runs the most adequate function"""
     functionCheck(keywordsListSelection(stringToKeywords(getUserInput())))
+
+
+def noInputMatch():
+    outList = ["I'm sorry, but I didn't understand what you said. Please express yourself in other words.",
+               "Apologies, but I didn't quite pick that up. Please rephrase.",
+               "Sorry, but I don't know how to respond to that. Please tell it to me in other words."]
+    print(outList[random.randint(0, len(outList) - 1)])
+    functionRun()
 
 # for j in range(len(keywordsList[0])):
 #     keywordsList[0][j] = keywordsList[0][j].lower()
