@@ -1,7 +1,6 @@
 # The following code has been developed by Rafael de Moura Afonso Rodrigues.
 # Any exceptions to the rule above will be appropriately pointed out, along with references to the code's origin.
-# This will be removed once everyone starts having a relevant contribution to this module.
-# Then the contribution should be registered in comments before and after the contribution itself.
+# In case of anyone else's contribution, such should be registered in comments before and after the contribution itself.
 # If it is only one line, just write it next to the line.
 
 from generalFunctions import *
@@ -13,12 +12,7 @@ from userDetails import *
 # each of the indexes in the second dimension corresponds to the values (keywords) inside the listed lists for each function / feature.
 # all keywords lists are named <functionName>KWList.
 # To find which index your function's list corresponds to, just write keywordList.index()
-keywordsList = [greetingsGeneralKWList, showUserDetailsKWList]
-
-
-def stringToKeywords(inp):
-    """Gets a string as an input and outputs it in a list of keywords"""
-    return inp.split()
+keywordsList = [greetingsGeneralKWList, showUserDetailsKWList, replyToOkKWList, goodbyeKWList, replyToLolKWList, replyToCritiqueKWList]
 
 
 def keywordsListSelection(keywords):
@@ -72,6 +66,14 @@ def functionCheck(KWList):
         greetingsGeneral()
     elif KWList == showUserDetailsKWList:
         showUserDetails()
+    elif KWList == replyToOkKWList:
+        replyToOk()
+    elif KWList == goodbyeKWList:
+        goodbye()
+    elif KWList == replyToLolKWList:
+        replyToLol()
+    elif KWList == replyToCritiqueKWList:
+        replyToCritique()
     else:
         noInputMatch()
 

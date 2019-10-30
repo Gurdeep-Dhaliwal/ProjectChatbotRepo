@@ -1,3 +1,8 @@
+# The following code has been developed by Leo Rudczenko.
+# Any exceptions to the rule above will be appropriately pointed out, along with references to the code's origin.
+# In case of anyone else's contribution, such should be registered in comments before and after the contribution itself.
+# If it is only one line, just write it next to the line.
+
 from datetime import datetime
 
 # Call this subroutine at the start of the script, StartTime=GetCurrentTime()
