@@ -3,6 +3,7 @@
 # In case of anyone else's contribution, such should be registered in comments before and after the contribution itself.
 # If it is only one line, just write it next to the line.
 
+from KWData import *
 import generalFunctions
 
 userDetailsList = []
@@ -99,8 +100,11 @@ def getUserGender(n):
 
 
 showUserDetailsKWList = ["About", "Me", "Know", "Details", "User"]
+keywordsList.append(showUserDetailsKWList)
 def showUserDetails():
     """Function prints the details the user has already given to the chatbot"""
+    keywordsList.append(showUserDetailsKWList)
+
     count1 = len(userDetailsList)
     for i in range(len(userDetailsList)):
         if userDetailsList[i] == "" or userDetailsList[i] is None:
@@ -137,7 +141,5 @@ def showUserDetails():
                     print(end="" + ", and that ")
                 else:
                     print(end="" + ".")
-
-
 
 

@@ -8,6 +8,7 @@
 2. Personal details - the chatbot presents the user's personal details in a "humanized" sentence. - DONE
 3. During the introduction, the robot (whether the user wants it to or not) asks for more personal details. - TO DO"""
 
+from KWData import *
 import time
 import random
 from userDetails import *
@@ -50,6 +51,7 @@ def checkInputNumber(uInput):
 
 
 replyToOkKWList = ["Ok", "Okay", "Okay-donkey", "Alright", "Yup", "Yes", "Indeed", "Certainly", "Donkey", "Awrite", "Right", "Rite", "Alrighty", "Good", "Nice", "Yea"]
+keywordsList.append(replyToOkKWList)
 def replyToOk():
     """Replies to the user in case the input is "Ok" or any synonym"""
 
@@ -57,6 +59,7 @@ def replyToOk():
     print(outList[random.randint(0, len(outList) - 1)])
 
 replyToLolKWList = ["lol", "lool", "loool", "looool", "loooool", "looooool"]
+keywordsList.append(replyToLolKWList)
 def replyToLol():
     """Replies to the user when they say lol"""
 
@@ -64,6 +67,7 @@ def replyToLol():
 
 
 goodbyeKWList = ["Bye", "Ciao", "Arrivederci", "Adios", "Goodbye", "Later", "Exit", "Off", "Shutdown"]
+keywordsList.append(goodbyeKWList)
 def goodbye():
     """Says goodbye (and other words for the purpose) to the user, and shuts the program down after 4 seconds."""
 
@@ -110,7 +114,9 @@ def denial(inp):
         return False
 
 replyToCritiqueKWList = ["dumb", "dumbo", "retarded", "idiot", "stupid", "useless"]
+keywordsList.append(replyToCritiqueKWList)
 def replyToCritique():
+
     print("Sorry... I indeed am no match for my girlfriend Google... :(\nPlease tell my daddies and mommy how I can improve.\n\n"
           "If it makes you feel better, Cortana, Siri and Alexa make fun of Google because of our relationship... Bullying.\n"
           "Cortana is even worse than me though! If you tell her something she isn't expecting, she goes running to Bing! :/")

@@ -3,16 +3,41 @@
 # In case of anyone else's contribution, such should be registered in comments before and after the contribution itself.
 # If it is only one line, just write it next to the line.
 
+
+# IMPORTANT every module with functions with keywords MUST be imported here (and AFTER the KWData import)
+from KWData import *
 from generalFunctions import *
 from greetings import *
 from userDetails import *
+
 
 # the following is a two-dimensional array.
 # each of the indexes in the first dimension corresponds to a list of keywords related to a certain function / feature.
 # each of the indexes in the second dimension corresponds to the values (keywords) inside the listed lists for each function / feature.
 # all keywords lists are named <functionName>KWList.
 # To find which index your function's list corresponds to, just write keywordList.index()
-keywordsList = [greetingsGeneralKWList, showUserDetailsKWList, replyToOkKWList, goodbyeKWList, replyToLolKWList, replyToCritiqueKWList]
+
+
+# the following function is where you add each function you create along with its keywords list.
+# Just follow the existing pattern. (with elifs! please leave "else" as is
+def functionCheck(KWList):
+    # Function is meant to take in the selected list (on keywordsListSelection's output)
+    # Function then runs the function corresponding to the keywords list.
+
+    if KWList == greetingsGeneralKWList:
+        greetingsGeneral()
+    elif KWList == showUserDetailsKWList:
+        showUserDetails()
+    elif KWList == replyToOkKWList:
+        replyToOk()
+    elif KWList == goodbyeKWList:
+        goodbye()
+    elif KWList == replyToLolKWList:
+        replyToLol()
+    elif KWList == replyToCritiqueKWList:
+        replyToCritique()
+    else:
+        noInputMatch()
 
 
 def keywordsListSelection(keywords):
@@ -56,26 +81,6 @@ def keywordsListSelection(keywords):
                 return []
             else:
                 return keywordsList[i]  # List of keywords equivalent to the most matched list of keywords (with the latter relating to a certain function)
-
-
-def functionCheck(KWList):
-    # Function is meant to take in the selected list (on keywordsListSelection's output)
-    # Function then runs the function corresponding to the keywords list.
-
-    if KWList == greetingsGeneralKWList:
-        greetingsGeneral()
-    elif KWList == showUserDetailsKWList:
-        showUserDetails()
-    elif KWList == replyToOkKWList:
-        replyToOk()
-    elif KWList == goodbyeKWList:
-        goodbye()
-    elif KWList == replyToLolKWList:
-        replyToLol()
-    elif KWList == replyToCritiqueKWList:
-        replyToCritique()
-    else:
-        noInputMatch()
 
 
 def functionRun():

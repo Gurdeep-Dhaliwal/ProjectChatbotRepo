@@ -3,6 +3,7 @@
 # In case of anyone else's contribution, such should be registered in comments before and after the contribution itself.
 # If it is only one line, just write it next to the line.
 
+from KWData import *
 import userDetails
 import random
 
@@ -10,6 +11,7 @@ import random
 
 # Write general introduction which decides which of the functions below to run depending on if name has been provided or not.
 greetingsGeneralKWList = ["Hello", "Hey", "Hi", "Hi-ya", "Hola", "Heya", "Howdy", "Heyo", "Hey", "Heyy", "Heyyy", "Yo", "Yoo", "Yooo", "hellow yellow"]
+keywordsList.append(greetingsGeneralKWList)
 def greetingsGeneral():
 
     if 0 == len(userDetails.userDetailsList):  # Checks if the userDetailsList isn't empty.
