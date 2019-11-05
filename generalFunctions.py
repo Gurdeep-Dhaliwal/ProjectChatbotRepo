@@ -67,7 +67,7 @@ goodbyeKWList = ["Bye", "Ciao", "Arrivederci", "Adios", "Goodbye", "Later", "Exi
 def goodbye():
     """Says goodbye (and other words for the purpose) to the user, and shuts the program down after 4 seconds."""
 
-    outList1 = ["Bye", "Ciao", "Arrivederci", "^-^ many hugggs, Goodbye", "Bela ciao ciao ciao", "Adios", "Au revoir", "Goodbye", "See you later"]
+    outList1 = ["Chicken pie tatty bye", "Bye", "Ciao", "Arrivederci", "^-^ many hugggs, Goodbye", "Bela ciao ciao ciao", "Adios", "Au revoir", "Goodbye", "See you later"]
     outList2 = [":)", ":D", "^-^", ":3", "c:", "^^", ":]", "*-*"]
 
     if userDetailsList[0] == "":
