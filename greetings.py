@@ -3,7 +3,7 @@
 # In case of anyone else's contribution, such should be registered in comments before and after the contribution itself.
 # If it is only one line, just write it next to the line.
 
-from KWData import *
+from data import *
 import userDetails
 import random
 

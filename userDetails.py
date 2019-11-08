@@ -3,7 +3,7 @@
 # In case of anyone else's contribution, such should be registered in comments before and after the contribution itself.
 # If it is only one line, just write it next to the line.
 
-from KWData import *
+from data import *
 import generalFunctions
 
 userDetailsList = []
@@ -42,7 +42,7 @@ def getUserAge(n):
     """Gets the user's age and outputs it"""
     # ALWAYS run with input 0
 
-    print(end="" + "How many years old are you?")
+    print(end="" + "How old are you?")
 
     age = generalFunctions.getUserInput()
 

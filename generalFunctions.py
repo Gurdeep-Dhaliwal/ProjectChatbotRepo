@@ -8,11 +8,17 @@
 2. Personal details - the chatbot presents the user's personal details in a "humanized" sentence. - DONE
 3. During the introduction, the robot (whether the user wants it to or not) asks for more personal details. - TO DO"""
 
-from KWData import *
 import time
 import random
 from userDetails import *
 import sys
+
+
+def lowercaseList1D(listIn):
+    for i in range(len(listIn)):
+        listIn[i] = listIn[i].lower()
+    return listIn
+
 
 def stringToKeywords(inp):
     """Gets a string as an input and outputs it in a list of keywords (separates words by spaces)"""

@@ -5,10 +5,11 @@
 
 
 # IMPORTANT every module with functions with keywords MUST be imported here (and AFTER the KWData import)
-from KWData import *
+from data import *
 from generalFunctions import *
 from greetings import *
 from userDetails import *
+from currencyConverter import *
 
 
 # the following is a two-dimensional array.
@@ -20,8 +21,9 @@ from userDetails import *
 
 # the following function is where you add each function you create along with its keywords list.
 # Just follow the existing pattern. (with elifs! please leave "else" as is
-def functionCheck(KWList):
+def functionCheck(KWList, inputKeywords):
     # Function is meant to take in the selected list (on keywordsListSelection's output)
+    # Function also takes in a list of input keywords, in case other inner functions need those.
     # Function then runs the function corresponding to the keywords list.
 
     if KWList == greetingsGeneralKWList:
@@ -36,13 +38,14 @@ def functionCheck(KWList):
         replyToLol()
     elif KWList == replyToCritiqueKWList:
         replyToCritique()
+    elif KWList == ccStartupKWList:
+        ccStartup()
     else:
         noInputMatch()
 
 
 def keywordsListSelection(keywords):
     """Takes the keywords from user input and outputs the lists corresponding to each function that has the most matches."""
-
     countList = []
 
     # lowercase all keywords
@@ -78,14 +81,15 @@ def keywordsListSelection(keywords):
         if countListMax == keywordsList[i][-1]:
             del keywordsList[i][-1]
             if countListMax == 0:
-                return []
+                return [], keywords
             else:
-                return keywordsList[i]  # List of keywords equivalent to the most matched list of keywords (with the latter relating to a certain function)
+                return keywordsList[i], keywords  # List of keywords equivalent to the most matched list of keywords (with the latter relating to a certain function)
 
 
 def functionRun():
     """Function gets input from user and runs the most adequate function"""
-    functionCheck(keywordsListSelection(stringToKeywords(getUserInput())))
+    KWList, KWInput = keywordsListSelection(stringToKeywords(getUserInput()))
+    functionCheck(KWList, KWInput)
 
 
 def noInputMatch():
