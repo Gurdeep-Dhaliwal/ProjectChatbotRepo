@@ -23,3 +23,6 @@ def GetUTCTime():
         UTCString+=TimeArray[x]+":"
     UTCString+=TimeArray[5]+" "+TimeArray[6]
     return UTCString
+
+# test works good
+# print(GetUTCTime())

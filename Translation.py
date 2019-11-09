@@ -32,3 +32,7 @@ def TranslateText(Text,Language):
         return JsonData["text"][0]
     except:
         return "Unknown Error Translating. Please check formatting of inputs."
+
+
+# Tests passed, all good
+# print(TranslateText("hello", "french"))
