@@ -1,5 +1,11 @@
 import requests,json
+#KW=["translate","decipher"]
 def TranslateText(Text,Language):
+    # Function to translate the given text under the argument Text to the language given under the argument Language.
+    # The Language given is converted to its language code which is then passed to a translation API with the Text.
+    # The function then returns the data returned by the API.
+    # If the function encouters any errors whilst translating,
+    # it will return a string informing the user that there was an error and prompt them to check their formatting of the arguments.
     try:
         LanguageCodes={"azerbaijan":"az","albanian":"sq","amharic":"am","english":"en",
                        "arabic":"ar","armenian":"hy","afrikaans":"af","basque":"eu",
@@ -32,7 +38,3 @@ def TranslateText(Text,Language):
         return JsonData["text"][0]
     except:
         return "Unknown Error Translating. Please check formatting of inputs."
-
-
-# Tests passed, all good
-# print(TranslateText("hello", "french"))

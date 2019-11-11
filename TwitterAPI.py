@@ -1,16 +1,20 @@
 from random import randint
-import twitter, json
+import twitter
 
+#KW=["joke","laugh","funny"]
 def GetTwitterJoke():
+    # Function to retrieve a Tweet from a Twitter account which regular posts jokes.
+    # Function will retrieve the 10 most recent Tweets from the account's timeline.
+    # Function will extract the text from the Tweets and append them to an array of the returned text.
+    # The function will then return a random joke from the array, using the random module to select a random position in the array.
     AccessToken="3188258938-W47VMmUXnJWvkza4YoEEPbL5NkFi0A7C2icFXpt"
     AccessTokenSecret="JyAZxYlt7GqQhzTj0LtnrqpyCJ94wzB05pDuCN3UytfDu"
     ConsumerKey="8JfJNFTP1HyI9hYvgv9lEqsFU"
     ConsumerSecretKey="1ny3apY6AEdxInWxu9rFdvLC4KPaAz5dbKECoufPnZ7Nksxs8g"
-
-    TwitterAPI=twitter.api(consumer_key=ConsumerKey,consumer_secret=ConsumerSecretKey,
+    TwitterAPI=twitter.Api(consumer_key=ConsumerKey,consumer_secret=ConsumerSecretKey,
                     access_token_key=AccessToken,access_token_secret=AccessTokenSecret)
-
-    Timeline=str(TwitterAPI.GetUserTimeline(screen_name="Dadsaysjokes",count=100)).replace("\\n"," ")
+    NewLine="\\n"
+    Timeline=str(TwitterAPI.GetUserTimeline(screen_name="Dadsaysjokes",count=10)).replace(NewLine," ")
     ExtractingText=True
     TextArray=[]
     Text=""
@@ -22,7 +26,7 @@ def GetTwitterJoke():
                     if "https://" not in Text:
                         while RemovingWhiteSpace==True:
                             Text=Text.replace("  "," ")
-                            if "  " not in Text:
+                            if "  " not in Text and NewLine[0] not in Text:
                                 TextArray.append(Text)
                                 RemovingWhiteSpace=False
                     ExtractingText=False
@@ -32,9 +36,15 @@ def GetTwitterJoke():
         Text=""
         ExtractingText=True
         RemovingWhiteSpace=True
-    return TextArray[randint(0,len(TextArray))]
-
-# Tests not passed. Check line 10. Maybe "api" isn't the thing to be called there
-# print(GetTwitterJoke())
+    Text=TextArray[randint(0,len(TextArray))]
+    WordArray=Text.split()
+    try:
+        if WordArray[0][0].upper()==WordArray[0][0] and WordArray[1][0].upper()==WordArray[1][0]:
+            Text=Text[len(WordArray[0])+1:]
+    except:
+        pass
+    return Text
+            
+                
 
 
