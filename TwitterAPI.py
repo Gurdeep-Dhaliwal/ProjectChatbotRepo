@@ -14,7 +14,7 @@ def GetTwitterJoke():
     TwitterAPI=twitter.Api(consumer_key=ConsumerKey,consumer_secret=ConsumerSecretKey,
                     access_token_key=AccessToken,access_token_secret=AccessTokenSecret)
     NewLine="\\n"
-    Timeline=str(TwitterAPI.GetUserTimeline(screen_name="Dadsaysjokes",count=10)).replace(NewLine," ")
+    Timeline=str(TwitterAPI.GetUserTimeline(screen_name="Dadsaysjokes",count=50)).replace(NewLine," ")
     ExtractingText=True
     TextArray=[]
     Text=""
@@ -26,9 +26,10 @@ def GetTwitterJoke():
                     if "https://" not in Text:
                         while RemovingWhiteSpace==True:
                             Text=Text.replace("  "," ")
-                            if "  " not in Text and NewLine[0] not in Text:
-                                TextArray.append(Text)
+                            if "  " not in Text:
                                 RemovingWhiteSpace=False
+                        if NewLine[0] not in Text:
+                            TextArray.append(Text)
                     ExtractingText=False
                 else:
                     Text+=Timeline[y]
@@ -44,6 +45,8 @@ def GetTwitterJoke():
     except:
         pass
     return Text
+
+print(GetTwitterJoke())
             
                 
 
