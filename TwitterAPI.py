@@ -45,8 +45,6 @@ def GetTwitterJoke():
     except:
         pass
     return Text
-
-print(GetTwitterJoke())
             
                 
 
