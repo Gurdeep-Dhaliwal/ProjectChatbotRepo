@@ -80,6 +80,16 @@ def SearchForUser(User):
     except:
         return "User not found."
 
+def GetUser():
+    # Function to get the user record from the database and return it
+    cr,db=ConnectDatabase()
+    cr.execute("SELECT * FROM Users")
+    User=[]
+    for x in cr.fetchall():
+        for y in x:
+            User.append(SecureString(y,"D"))
+    return User[1:]
+
 """If a field does not need to be updated, input a blank string for its position in the User array, e.g. [User_ID,"","19",""] to only update a user's age"""
 def UpdateUser(User,NewUserData):
     # Function to update a record in the databse where the given data under the User argument is the current record,
