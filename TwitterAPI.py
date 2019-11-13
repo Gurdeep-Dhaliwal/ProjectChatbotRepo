@@ -1,5 +1,7 @@
 from random import randint
-import twitter, json
+import twitter
+
+
 
 def GetTwitterJoke():
     AccessToken="3188258938-W47VMmUXnJWvkza4YoEEPbL5NkFi0A7C2icFXpt"
@@ -7,7 +9,7 @@ def GetTwitterJoke():
     ConsumerKey="8JfJNFTP1HyI9hYvgv9lEqsFU"
     ConsumerSecretKey="1ny3apY6AEdxInWxu9rFdvLC4KPaAz5dbKECoufPnZ7Nksxs8g"
 
-    TwitterAPI=twitter.api(consumer_key=ConsumerKey,consumer_secret=ConsumerSecretKey,
+    TwitterAPI=twitter.Api(consumer_key=ConsumerKey,consumer_secret=ConsumerSecretKey,
                     access_token_key=AccessToken,access_token_secret=AccessTokenSecret)
 
     Timeline=str(TwitterAPI.GetUserTimeline(screen_name="Dadsaysjokes",count=100)).replace("\\n"," ")
@@ -34,7 +36,8 @@ def GetTwitterJoke():
         RemovingWhiteSpace=True
     return TextArray[randint(0,len(TextArray))]
 
-# Tests not passed. Check line 10. Maybe "api" isn't the thing to be called there
+#print(GetTwitterJoke())
+# Tests passed. All good here.
 # print(GetTwitterJoke())
 
 

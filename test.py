@@ -1,9 +1,9 @@
 from main import *
 
 # Test functionRun()
-greetingsGeneral()
-while True:
-    functionRun()
+#greetingsGeneral()
+#while True:
+#    functionRun()
 
 
 # Test goodbye()
@@ -33,3 +33,13 @@ from generalFunctions import *
 #keywordsList.append(ccStartupKWList)
 #def ccStartup(inputKWs):
 """This function initiates the currency converter"""
+"""
+with urlopen("https://api.exchangeratesapi.io/latest") as content:
+    src = content.read()
+
+jsObject = json.loads(src)
+jsStr = json.dumps(jsObject, indent=4)
+print(jsStr)
+"""
+
+print(getDictKey(currencyCodesDict, "pound"))

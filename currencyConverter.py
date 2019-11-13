@@ -16,13 +16,27 @@ from data import *
 # print(jsonContentStr)
 # print(jsonContentObj["rates"]["CAD"])  # Example of how to retrieve data
 
-def getFromCurrency():
+def getFromCurrency(n):
+    """Function requests the currency the user wishes to convert from and outputs the corresponding currency code."""
+    # IMPORTANT: Function should be started with argument 0.
+
     print("Which currency do you wish to convert from?")
     inputKWs = lowercaseList1D(stringToKeywords(getUserInput()))  # Gets input string from user, stores all words in a list, lower cases every word.
 
-    for possibleCurrency in currenciesList:
-        for i in range(len(inputKWs)):
-            if
+    fromCurrencyStr = ""
+    for i in inputKWs:
+        if i in currenciesList:
+            fromCurrencyStr = i
+        else:
+            if n < 3:
+                print("Sorry, I can't recognise that currency.")
+                inputKWs.clear()
+                getFromCurrency(n + 1)
+            else:
+                return "noCurrency"
+
+    currencyCode = getDictKey(currencyCodesDict, fromCurrencyStr)
+    return currencyCode
 
 
 
@@ -70,7 +84,7 @@ def historicalConversion(amount, fromCurrency, toCurrency, fromDate, toDate):
     The function then outputs the conversion in a structured sentence with the following format:
     'On <date>, <amountBeforeConversion> <fromCurrency> was <valueAfterConversion> <toCurrency>'"""
 
-
+print(getFromCurrency(0))
 
 
 

@@ -14,6 +14,15 @@ from userDetails import *
 import sys
 
 
+def getDictKey(dictionary, value):
+    """This function returns the dictionary key linked with a given value."""
+    for key in dictionary:
+        if value in dictionary[key]:
+            return key
+
+    return "noKeyMatch"
+
+
 def lowercaseList1D(listIn):
     for i in range(len(listIn)):
         listIn[i] = listIn[i].lower()

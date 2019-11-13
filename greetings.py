@@ -8,7 +8,6 @@ import userDetails
 import random
 
 
-
 # Write general introduction which decides which of the functions below to run depending on if name has been provided or not.
 greetingsGeneralKWList = ["Hello", "Hey", "Hi", "Hi-ya", "Hola", "Heya", "Howdy", "Heyo", "Hey", "Heyy", "Heyyy", "Yo", "Yoo", "Yooo", "hellow yellow"]
 keywordsList.append(greetingsGeneralKWList)
