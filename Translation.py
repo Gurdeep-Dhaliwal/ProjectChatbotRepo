@@ -1,3 +1,4 @@
+# The 'requests' module is used to make requests to API's online
 import requests,json
 #KW=["translate","decipher"]
 def TranslateText(Text,Language):

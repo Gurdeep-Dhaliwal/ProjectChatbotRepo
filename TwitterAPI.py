@@ -1,4 +1,5 @@
 from random import randint
+# The 'twitter' module (technical name 'python-twitter') is used to retrieve data from Twitter using their API
 import twitter
 
 #KW=["joke","laugh","funny"]
