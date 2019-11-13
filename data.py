@@ -1,4 +1,7 @@
 keywordsList = list()
+globalInput = ""
+
+"""
 currenciesList = ["dollar", "krona", "peso", "krone", "forint", "koruna", "pound", "leu", "krona",
                    "rupiah", "rupee", "real", "ruble", "kuna", "yen", "baht", "franc", "euro", "ringgit", "lev",
                    "lira", "yuan", "rand", "shekel", "won", "zloty", "dollars", "kronas", "pesos", "krones", "forints", "korunas", "pounds", "leus", "kronas",
@@ -11,9 +14,23 @@ currenciesList = ["dollar", "krona", "peso", "krone", "forint", "koruna", "pound
                   "canadian dollars", "hong kong dollars", "icelandic kronas", "philipine pesos", "danish krones", "hungarian froints", "czech republic korunas", "british pounds", "romanian leus", "swedish kronas", "indonesian rupiahs",
                   "indian rupees", "brazilian reals", "russian rubles", "croatian kunas", "japanese yens", "thai bahts", "swiss francs", "malaysian ringgits", "bulgarian levs", "turkish lyras", "chinese yuans",
                   "norwegian krones", "new zealand dollars", "south african rands", "united states dollars", "mexican pesos", "singapore dollars", "australian dollars", "israeli new shekels", "south korean wons", "poland zloty"]
+"""
+
 
 currencyCodes = ["CAD", "HKD", "ISK", "PHP", "DKK", "HUF", "CZK", "GBP", "RON", "SEK", "IDR", "INR", "BRL", "RUB", "HRK", "JPY", "THB", "CHF",
                     "EUR", "MYR", "BGN", "TRY", "CNY", "NOK", "NZD", "ZAR", "USD", "MXN", "SGD", "AUD", "ILS", "KRW", "PLN"]
+
+
+currenciesList = ["CAD", "canadian", "canada", "canadian dollar",
+                  "HKD", "hong", "kong", "hong kong dollar",
+                  "ISK", "icelandic", "iceland", "icelandic krona",
+                  "PHP", "philippines", "philippine", "philippine peso",
+                  "DKK", "denmark", "danish", "dansih krone",
+                  "HUF", "hungarian", "hungary", "forint", "forints", "hungarian forint",
+                  "CZK", "czech", "koruna", "korunas", "czech koruna",
+                  "GBP", "british", "britain", "uk", "england", "scotland", "wales", "pound", "pounds", "great british pound",
+                  "RON", "romanian", "romania", "leu", "leus", "romanian leu",]
+
 
 currencyCodesDict = {
     "CAD": ("canadian", "canada", "canadian dollar"),

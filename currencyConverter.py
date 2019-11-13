@@ -49,12 +49,11 @@ def getToCurrency(n):
     """Function takes as input:
         1. Int number 0 (for technical purposes)
         Function outputs:
-        1. A the currency code, eg. "EUR", the user wants to convert from
+        1. A the currency code, eg. "GBP", the user wants to convert from
         """
 
     print("Which currency do you wish to convert to?")
-    inputKWs = lowercaseList1D(stringToKeywords(
-        getUserInput()))  # Gets input string from user, stores all words in a list, lower cases every word.
+    inputKWs = lowercaseList1D(stringToKeywords(getUserInput()))  # Gets input string from user, stores all words in a list, lower cases every word.
 
     currencyStr = ""
     for inpKW in inputKWs:
@@ -116,7 +115,7 @@ def historicalConversion(amount, fromCurrency, toCurrency, fromDate, toDate):
     The function then outputs the conversion in a structured sentence with the following format:
     'On <date>, <amountBeforeConversion> <fromCurrency> was <valueAfterConversion> <toCurrency>'"""
 
-print(getFromCurrency(0))
+#print(getToCurrency(0))
 
 
 

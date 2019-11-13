@@ -1,11 +1,22 @@
 from main import *
 
+
 # Test functionRun()
-# greetingsGeneral()
+greetingsGeneral()
 while True:
 
     functionRun()
 
+
+"""
+while True:
+
+    def triggerIt():
+        @client.event
+        async def on_message(message):
+            globalInput = message
+            functionRun()
+"""
 
 # Test goodbye()
 #userDetailsList.append("")

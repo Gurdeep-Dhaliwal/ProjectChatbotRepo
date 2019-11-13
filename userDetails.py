@@ -10,13 +10,27 @@ userDetailsList = []
 # 0 = name
 # 1 = age
 # 2 = gender
+# 3 = nickname
 
 
 def getUserDetails():
     """Gets the user's personal data"""
+    userDetailsList[3] = getUserNickname()
     userDetailsList[0] = getUserName()
     userDetailsList[1] = getUserAge(0)
     userDetailsList[2] = getUserGender(0)
+
+
+
+def getUserNickname():
+    print("Tell me your nickname.")
+    nickname = str(generalFunctions.getUserInput())
+
+    if generalFunctions.denial(nickname):
+        print("Ok, you're in charge. Moving on...\n")
+        return ""
+
+    return nickname
 
 
 def getUserName():
