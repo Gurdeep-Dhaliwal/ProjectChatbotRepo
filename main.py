@@ -10,6 +10,7 @@ from generalFunctions import *
 from greetings import *
 from userDetails import *
 from currencyConverter import *
+from TwitterAPI import *
 
 
 # the following is a two-dimensional array.

@@ -1,9 +1,10 @@
 from main import *
 
 # Test functionRun()
-#greetingsGeneral()
-#while True:
-#    functionRun()
+# greetingsGeneral()
+while True:
+
+    functionRun()
 
 
 # Test goodbye()
@@ -42,4 +43,4 @@ jsStr = json.dumps(jsObject, indent=4)
 print(jsStr)
 """
 
-print(getDictKey(currencyCodesDict, "pound"))
+# print(getDictKey(currencyCodesDict, "pound"))

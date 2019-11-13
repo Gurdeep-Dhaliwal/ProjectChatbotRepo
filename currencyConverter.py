@@ -16,28 +16,61 @@ from data import *
 # print(jsonContentStr)
 # print(jsonContentObj["rates"]["CAD"])  # Example of how to retrieve data
 
+
+
 def getFromCurrency(n):
-    """Function requests the currency the user wishes to convert from and outputs the corresponding currency code."""
-    # IMPORTANT: Function should be started with argument 0.
+    """Function takes as input:
+    1. Int number 0 (for technical purposes)
+    Function outputs:
+    1. A the currency code, eg. "EUR", the user wants to convert from
+    """
 
     print("Which currency do you wish to convert from?")
     inputKWs = lowercaseList1D(stringToKeywords(getUserInput()))  # Gets input string from user, stores all words in a list, lower cases every word.
 
-    fromCurrencyStr = ""
-    for i in inputKWs:
-        if i in currenciesList:
-            fromCurrencyStr = i
+    currencyStr = ""
+    for inpKW in inputKWs:
+        if inpKW in currenciesList:
+            currencyStr = inpKW
+            break
         else:
-            if n < 3:
-                print("Sorry, I can't recognise that currency.")
-                inputKWs.clear()
-                getFromCurrency(n + 1)
-            else:
-                return "noCurrency"
+            currencyStr = ""
 
-    currencyCode = getDictKey(currencyCodesDict, fromCurrencyStr)
-    return currencyCode
+    if currencyStr != "":
+        return getDictKey(currencyCodesDict, currencyStr)  # Returns the currency code
+    elif n < 3:
+        print("Sorry, I can't recognise that currency. Maybe you've misspelled it?")
+        return getFromCurrency(n + 1)
+    else:
+        return "noCurrency"
 
+
+def getToCurrency(n):
+    """Function takes as input:
+        1. Int number 0 (for technical purposes)
+        Function outputs:
+        1. A the currency code, eg. "EUR", the user wants to convert from
+        """
+
+    print("Which currency do you wish to convert to?")
+    inputKWs = lowercaseList1D(stringToKeywords(
+        getUserInput()))  # Gets input string from user, stores all words in a list, lower cases every word.
+
+    currencyStr = ""
+    for inpKW in inputKWs:
+        if inpKW in currenciesList:
+            currencyStr = inpKW
+            break
+        else:
+            currencyStr = ""
+
+    if currencyStr != "":
+        return getDictKey(currencyCodesDict, currencyStr)  # Returns the currency code
+    elif n < 3:
+        print("Sorry, I can't recognise that currency. Maybe you've misspelled it?")
+        return getFromCurrency(n + 1)
+    else:
+        return "noCurrency"
 
 
 
@@ -55,11 +88,10 @@ def ccStartup():
         print("Ok then, lets move on to something else.")
         return None
 
-    print("Which currency do you wish to convert from?")
-    fromCurrency = getUserInput()
+    fromCurrency = getFromCurrency(0)
     print("What is the amount you wish to convert?")
     amount = getUserInput()
-    print("And which currency do you wish to convert?")
+    print("And which currency do you wish to convert to?")
 
 
 
