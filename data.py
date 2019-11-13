@@ -11,3 +11,42 @@ currenciesList = ["dollar", "krona", "peso", "krone", "forint", "koruna", "pound
                   "canadian dollars", "hong kong dollars", "icelandic kronas", "philipine pesos", "danish krones", "hungarian froints", "czech republic korunas", "british pounds", "romanian leus", "swedish kronas", "indonesian rupiahs",
                   "indian rupees", "brazilian reals", "russian rubles", "croatian kunas", "japanese yens", "thai bahts", "swiss francs", "malaysian ringgits", "bulgarian levs", "turkish lyras", "chinese yuans",
                   "norwegian krones", "new zealand dollars", "south african rands", "united states dollars", "mexican pesos", "singapore dollars", "australian dollars", "israeli new shekels", "south korean wons", "poland zloty"]
+
+currencyCodes = ["CAD", "HKD", "ISK", "PHP", "DKK", "HUF", "CZK", "GBP", "RON", "SEK", "IDR", "INR", "BRL", "RUB", "HRK", "JPY", "THB", "CHF",
+                    "EUR", "MYR", "BGN", "TRY", "CNY", "NOK", "NZD", "ZAR", "USD", "MXN", "SGD", "AUD", "ILS", "KRW", "PLN"]
+
+currencyCodesDict = {
+    "CAD": ("canadian", "canada", "canadian dollar"),
+    "HKD": ("hong", "kong", "hong kong dollar"),
+    "ISK": ("icelandic", "iceland", "icelandic krona"),
+    "PHP": ("philippines", "philippine", "philippine peso"),
+    "DKK": ("denmark", "danish", "dansih krone"),
+    "HUF": ("hungarian", "hungary", "forint", "forints", "hungarian forint"),
+    "CZK": ("czech", "koruna", "korunas", "czech koruna"),
+    "GBP": ("british", "britain", "uk", "england", "scotland", "wales", "pound", "pounds", "great british pound"),
+    "RON": ("romanian", "romania", "leu", "leus", "romanian leu"),
+    "SEK": ("swedish", "sweden", "krona", "kronas", "swedish krona"),
+    "IDR": ("indonesia", "indonesian", "rupiah", "rupiahs", "indonesian rupiah"),
+    "INR": ("india", "indian", "rupee", "rupees", "indian rupee"),
+    "BRL": ("brazil", "brazilian", "real", "reals", "reais", "brazilian real"),
+    "RUB": ("russia", "russian", "ruble", "rubles", "russian ruble"),
+    "HRK": ("croatian", "croatia", "kuna", "kunas", "croatian kuna"),
+    "JPY": ("japan", "japanese", "yen", "yens", "japanese yen"),
+    "THB": ("thai", "thailand", "baht", "bahts", "thai baht"),
+    "CHF": ("swiss", "switzerland", "franc", "francs", "swiss franc"),
+    "EUR": ("europe", "eu", "euros", "euro"),
+    "MYR": ("malaysia", "malaysia", "ringgit", "ringgits", "malasian ringgit"),
+    "BGN": ("bulgaria", "bulgarian", "lev", "levs", "bulgarian lev"),
+    "TRY": ("turkey", "turkish", "lira", "liras", "turkish lira"),
+    "CNY": ("china", "chinese", "yuan", "yuans", "chinese yuan"),
+    "NOK": ("norway", "norwegian", "krone", "krones", "norwegian krone"),
+    "NZD": ("zealand", "new zealand dollar"),
+    "ZAR": ("africa", "african", "rand", "south african rand"),
+    "USD": ("states", "america", "american", "dollar", "dollars", "united states dollar"),
+    "MXN": ("mexico", "mexican", "peso", "pesos", "mexican peso"),
+    "SGD": ("singapore", "singapore dollar"),
+    "AUD": ("australia", "australian", "australian dollar"),
+    "ILS": ("israel", "israeli", "shekel", "shekels", "israeli shekel"),
+    "KRW": ("south", "korean", "won", "wons", "korean won"),
+    "PLN": ("poland", "polish", "zloty", "zlotys", "polish zloty")
+}
