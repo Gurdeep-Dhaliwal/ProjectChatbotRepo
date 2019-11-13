@@ -5,7 +5,10 @@
 
 from data import *
 import generalFunctions
+from UserDatabase import *
 
+try:
+    userDetailsList=GetUser()
 userDetailsList = []
 # 0 = name
 # 1 = age
@@ -19,6 +22,7 @@ def getUserDetails():
     userDetailsList[0] = getUserName()
     userDetailsList[1] = getUserAge(0)
     userDetailsList[2] = getUserGender(0)
+    InputUser(userDetailsList)
 
 
 
@@ -70,7 +74,7 @@ def getUserAge(n):
         if n < 1:
             print("Please express your age as a number.")
             n = n + 1
-            getUserAge(n)
+            return getUserAge(n)
         else:
             print("Don't make a fool of me... let's just move on...\n")
             return str("")
@@ -102,7 +106,7 @@ def getUserGender(n):
         if n < 3:
             print("That is not a gender... Are you trying to fool me?")
             n = n + 1
-            getUserGender(n)
+            return getUserGender(n)
         else:
             print("Don't make a fool of me... let's just move on...\n")
             return str("")
@@ -113,7 +117,7 @@ def getUserGender(n):
             return gender
 
 
-showUserDetailsKWList = ["About", "Me", "Know", "Details", "User"]
+showUserDetailsKWList = ["About", "Know", "Details", "User"]
 keywordsList.append(showUserDetailsKWList)
 def showUserDetails():
     """Function prints the details the user has already given to the chatbot"""

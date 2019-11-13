@@ -11,6 +11,7 @@ from greetings import *
 from userDetails import *
 from currencyConverter import *
 from TwitterAPI import *
+from Translation import *
 
 
 # the following is a two-dimensional array.
@@ -41,6 +42,10 @@ def functionCheck(KWList, inputKeywords):
         replyToCritique()
     elif KWList == ccStartupKWList:
         ccStartup()
+    elif KWList == GetTwitterJokeKWList:
+        GetTwitterJoke()
+    elif KWList == TranslationKWList:
+        Translation()
     else:
         noInputMatch()
 

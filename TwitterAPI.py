@@ -1,8 +1,10 @@
 from random import randint
 # The 'twitter' module (technical name 'python-twitter') is used to retrieve data from Twitter using their API
 import twitter
+from data import *
 
-#KW=["joke","laugh","funny"]
+GetTwitterJokeKWList = ["joke", "laugh", "funny", "he", "hehe", "fun"]
+keywordsList.append(GetTwitterJokeKWList)
 def GetTwitterJoke():
     # Function to retrieve a Tweet from a Twitter account which regular posts jokes.
     # Function will retrieve the 10 most recent Tweets from the account's timeline.
@@ -38,15 +40,13 @@ def GetTwitterJoke():
         Text=""
         ExtractingText=True
         RemovingWhiteSpace=True
-    Text=TextArray[randint(0,len(TextArray))]
+    Text=TextArray[randint(0,len(TextArray)-1)]
     WordArray=Text.split()
     try:
         if WordArray[0][0].upper()==WordArray[0][0] and WordArray[1][0].upper()==WordArray[1][0]:
             Text=Text[len(WordArray[0])+1:]
     except:
         pass
-    return Text
+    print(Text)
             
-                
-
 
