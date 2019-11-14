@@ -12,7 +12,8 @@ import time
 import random
 from userDetails import *
 import sys
-from discord import *
+import json
+from urllib.request import urlopen
 
 
 def getDictKey(dictionary, value):
@@ -64,6 +65,50 @@ def checkInputNumber(uInput):
         return True  # The print functions were removed and the function now returns a bool.
     except ValueError:
         return False  # The print functions were removed and the function now returns a bool.
+
+
+def getJSonFromUrl(url):
+    """Gets a json file from an url and converts its string into an object which is then returned"""
+    with urlopen(url) as urlContent:
+        src = urlContent.read()
+
+    return json.loads(src)
+
+
+def mostMatchedList(inputList, compareList0, compareList1):
+    """Takes 3 lists, 1 of which will be compared to 2 others (also provided as input)
+    Outputs the most matched one."""
+
+    compareList = [compareList0, compareList1]
+    countList = []
+
+    for i in range(len(compareList)):
+
+        countList.append(0)
+        compareList[i].append(0)  # this adds an element which stores the number of keyword matches to the list being iterated over.
+        count = 0  # counts every iteration of the inner loop.
+        listLen = len(compareList[i])
+
+        for keyW in inputList:
+
+            count = count + 1
+            if count > (listLen - 1):
+                break
+
+            if keyW in compareList[i]:
+                countList[i] = countList[i] + 1
+                compareList[i][-1] = compareList[i][-1] + 1  # adds 1 to the last element of the list being iterated over
+
+    # I want it to go through each of the inner list's last element and retrieve the largest.
+    countListMax = max(countList)
+
+    for i in range(len(compareList)):
+        if countListMax == compareList[i][-1]:
+            del compareList[i][-1]
+            if countListMax == 0:
+                return []
+            else:
+                return compareList[i]  # List of keywords equivalent to the most matched list of keywords (with the latter relating to a certain function)
 
 
 replyToOkKWList = ["Ok", "Okay", "Okay-donkey", "Alright", "Yup", "Yes", "Indeed", "Certainly", "Donkey", "Awrite", "Right", "Rite", "Alrighty", "Good", "Nice", "Yea"]

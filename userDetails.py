@@ -8,8 +8,9 @@ import generalFunctions
 from UserDatabase import *
 
 try:
-    userDetailsList=GetUser()
-userDetailsList = []
+    userDetailsList = GetUser()
+except:
+    userDetailsList = []
 # 0 = name
 # 1 = age
 # 2 = gender
@@ -18,10 +19,11 @@ userDetailsList = []
 
 def getUserDetails():
     """Gets the user's personal data"""
-    userDetailsList[3] = getUserNickname()
-    userDetailsList[0] = getUserName()
-    userDetailsList[1] = getUserAge(0)
-    userDetailsList[2] = getUserGender(0)
+    userDetailsList.append(getUserName())
+    userDetailsList.append(getUserAge(0))
+    userDetailsList.append(getUserGender(0))
+    userDetailsList.append(getUserNickname())
+
     InputUser(userDetailsList)
 
 

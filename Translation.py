@@ -20,18 +20,18 @@ def TranslateText(Text, Language):
         return "Unknown Error Translating. Please check formatting of inputs."
 
 
-def getLanguage(n):
-    # IMPORTANT! Fucntion should always be started with argument 0 of int type.
+def getLanguage(p):
+
     print("Which language do you wish to translate to?")
 
     language = getUserInput()
     language = language.lower()
 
-    if language not in list(LanguageCodes.keys()) and n < 3:
+    if language not in list(LanguageCodes.keys()) and p <= 2:
         print("Sorry, that is not a valid language... check your typing, please :3")
-        return getLanguage(n+1)
-    elif language not in list(LanguageCodes.keys()) and n >= 3:
-        print("Ok clearly your IQ is very low. Let's move on.")
+        return getLanguage(p+1)
+    elif language not in list(LanguageCodes.keys()) and p > 2:
+        print("Ok clearly your brain is not working atm. Let's move on.")
         return("noLanguage")
     else:
         return language

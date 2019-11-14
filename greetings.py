@@ -15,8 +15,8 @@ keywordsList.append(greetingsGeneralKWList)
 def greetingsGeneral():
 
     if 0 == len(userDetails.userDetailsList):  # Checks if the userDetailsList isn't empty.
-        for i in range(4):
-            userDetails.userDetailsList.append("")
+        # for i in range(4):
+        #    userDetails.userDetailsList.append("")
         introduction()
     else:
         greeting()
