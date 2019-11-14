@@ -49,7 +49,7 @@ async def start(ctx, video:str):
     guild = ctx.message.author.voice.channel
     voice_channel = await guild.connect()
     opts = {
-    'outtmpl': r'C:\Users\georg\Documents\DiscordBot/video.mp3',
+    'outtmpl': r'C:\video.mp3',
     'format': 'bestaudio/best',
     'postprocessors': [{
         'key': 'FFmpegExtractAudio',
