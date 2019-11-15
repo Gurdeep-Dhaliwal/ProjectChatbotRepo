@@ -1,19 +1,9 @@
+# The following code has been developed by Rafael de Moura Afonso Rodrigues.
+# Any exceptions to the rule above will be appropriately pointed out, along with references to the code's origin.
+
 from generalFunctions import *
 from data import *
 import datetime
-
-# The link in the code below was copied from an API's website.
-# The links imported throughout this module can be found on the website below
-# Link to API website: https://exchangeratesapi.io/
-# with urlopen("https://api.exchangeratesapi.io/history?start_at=2018-01-01&end_at=2018-09-01&base=USD") as urlContent:
-#    src = urlContent.read()
-# end of copied code
-
-# jsonContentObj = json.loads(src)
-# jsonContentStr = json.dumps(jsonContentObj["rates"]["2018-05-04"], indent=4)  # the dictionary was converted to a list for readability.
-# print(jsonContentStr)
-# print(jsonContentObj["rates"]["CAD"])  # Example of how to retrieve data
-
 
 
 def getFromCurrency(n):
@@ -175,6 +165,10 @@ def currentConversion(amount, fromCurrency, toCurrency):
     The function then outputs the conversion in a structured sentence with the following format:
     'At the moment, <amountBeforeConversion> <fromCurrency> is <valueAfterConversion> <toCurrency>'"""
 
+    # REFRENCING:
+    # All the links below get data from an API's website.
+    # Link to API website: https://exchangeratesapi.io/
+
     if fromCurrency == toCurrency:
         rate = 1
     else:
@@ -194,6 +188,10 @@ def previousConversion(amount, fromCurrency, toCurrency, date):
     <from>or<to>Date[0] = YYYY; <from>or<to>Date[1] = MM; <from>or<to>Date[2] = DD (values should be integers).
     The function then outputs the conversion in a structured sentence with the following format:
     'On <date>, <amountBeforeConversion> <fromCurrency> was <valueAfterConversion> <toCurrency>'"""
+
+    # REFRENCING:
+    # All the links below get data from an API's website.
+    # Link to API website: https://exchangeratesapi.io/
 
     if fromCurrency == toCurrency:
         rate = 1

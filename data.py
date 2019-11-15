@@ -1,3 +1,8 @@
+# the following is a two-dimensional array.
+# each of the indexes in the first dimension corresponds to a list of keywords related to a certain function / feature.
+# each of the indexes in the second dimension corresponds to the values (keywords) inside the listed lists for each function / feature.
+# all keywords lists are named <functionName>KWList.
+# To find which index your function's list corresponds to, just write keywordList.index()
 keywordsList = list()
 
 LanguageCodes={"azerbaijan":"az","albanian":"sq","amharic":"am","english":"en",

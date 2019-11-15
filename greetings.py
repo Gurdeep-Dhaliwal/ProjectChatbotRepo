@@ -1,7 +1,5 @@
 # The following code has been developed by Rafael de Moura Afonso Rodrigues.
 # Any exceptions to the rule above will be appropriately pointed out, along with references to the code's origin.
-# In case of anyone else's contribution, such should be registered in comments before and after the contribution itself.
-# If it is only one line, just write it next to the line.
 
 from data import *
 import userDetails

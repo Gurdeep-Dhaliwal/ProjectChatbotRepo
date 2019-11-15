@@ -1,12 +1,5 @@
 # The following code has been developed by Rafael de Moura Afonso Rodrigues.
 # Any exceptions to the rule above will be appropriately pointed out, along with references to the code's origin.
-# In case of anyone else's contribution, such should be registered in comments before and after the contribution itself.
-# If it is only one line, just write it next to the line.
-
-"""Current "sub"features present in this file:
-1. Introduction - the chatbot introduces itself to the user and asks for a few personal details. - DONE
-2. Personal details - the chatbot presents the user's personal details in a "humanized" sentence. - DONE
-3. During the introduction, the robot (whether the user wants it to or not) asks for more personal details. - TO DO"""
 
 import time
 import random
